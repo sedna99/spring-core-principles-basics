@@ -1,6 +1,7 @@
 package hello.core.order;
 
 import hello.core.AppConfig;
+import hello.core.discount.DiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.*;
 import org.assertj.core.api.Assertions;
@@ -33,9 +34,9 @@ public class OrderServiceTest {
 
     @Test
     void fieldInjectionTest() {
-        OrderServiceImpl orderService = new OrderServiceImpl();
-        orderService.setMemberRepository(new MemoryMemberRepository());
-        orderService.setDiscountPolicy(new RateDiscountPolicy());
+        MemberRepository memberRepository = new MemoryMemberRepository();
+        DiscountPolicy discountPolicy = new RateDiscountPolicy();
+        OrderServiceImpl orderService = new OrderServiceImpl(memberRepository, discountPolicy);
         orderService.createOrder(1L, "itemA", 10000);
 
     }

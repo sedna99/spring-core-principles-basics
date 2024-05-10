@@ -3,7 +3,7 @@ package hello.core.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("memberService2") //memberService2라는 이름으로 스프링 빈에 등록
+@Component
 public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;
 
