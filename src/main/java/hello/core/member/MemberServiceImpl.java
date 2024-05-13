@@ -8,8 +8,8 @@ public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;
 
     @Autowired //ac.getBean(MemberRepository.class)와 같은 역할
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public MemberServiceImpl(MemberRepository memoryMemberRepository) {
+        this.memberRepository = memoryMemberRepository;
     }
     @Override
     public void join(Member member) {
